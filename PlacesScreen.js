@@ -7,13 +7,13 @@ import { set, push as pushToDatabase } from 'firebase/database';
 import { useNavigation } from '@react-navigation/native';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCo0rl8gAtcigJtZeAzFuUQHq_GxUNKorw",
-  authDomain: "osoitekirja-90710.firebaseapp.com",
-  databaseURL: "https://osoitekirja-90710-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "osoitekirja-90710",
-  storageBucket: "osoitekirja-90710.appspot.com",
-  messagingSenderId: "784034301711",
-  appId: "1:784034301711:web:9fb369ee40ea4871f4e07a"
+  apiKey: "your-api-key",
+  authDomain: "your-auth-domain",
+  databaseURL: "your-database-url",
+  projectId: "your-project-id",
+  storageBucket: "your-storage-bucket",
+  messagingSenderId: "your-messaging-sender-id",
+  appId: "your-app-id"
 };
 
 const app = initializeApp(firebaseConfig);
