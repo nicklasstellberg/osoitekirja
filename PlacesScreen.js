@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { initializeApp } from "firebase/app";
 import { getDatabase, push, remove, ref, onValue } from "firebase/database";
-import { TextInput, Button } from 'react-native';
+import { TextInput} from 'react-native';
 import { set, push as pushToDatabase } from 'firebase/database';
 import { useNavigation } from '@react-navigation/native';
+import { Header } from '@rneui/themed';
+import { Icon } from '@rneui/themed';
+import { Input, Button } from '@rneui/themed';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCo0rl8gAtcigJtZeAzFuUQHq_GxUNKorw",
@@ -62,12 +65,12 @@ const PlacesScreen = () => {
   return (
     <View>
       <View>
-        <TextInput
-          placeholder="Address"
+        <Input
+          placeholder="Type in address"
           value={newPlace.address}
           onChangeText={(text) => setNewPlace({ ...newPlace, address: text })}
         />
-        <Button title="Save" onPress={handleSave} />
+        <Button raised icon={{name: 'save'}}  title="Save" onPress={handleSave} />
       </View>
       {places &&
         places.map((place) => (
