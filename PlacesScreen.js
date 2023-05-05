@@ -8,6 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Header } from '@rneui/themed';
 import { Icon } from '@rneui/themed';
 import { Input, Button } from '@rneui/themed';
+import { Alert } from 'react-native';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCo0rl8gAtcigJtZeAzFuUQHq_GxUNKorw",
@@ -53,10 +54,27 @@ const PlacesScreen = () => {
   };
 
   const handleLongPress = (placeId) => {
-    const db = getDatabase();
-    const placeRef = ref(db, `places/${placeId}`);
-    remove(placeRef);
+    Alert.alert(
+      'Delete place',
+      'Are you sure you want to delete this place?',
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel'
+        },
+        {
+          text: 'Delete',
+          style: 'destructive',
+          onPress: () => {
+            const db = getDatabase();
+            const placeRef = ref(db, `places/${placeId}`);
+            remove(placeRef);
+          }
+        }
+      ]
+    );
   };
+  
 
   const handlePressPlace = (place) => {
     navigation.navigate('Map', { address: place.address });
