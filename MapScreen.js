@@ -1,10 +1,11 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 
 const MapScreen = ({ route }) => {
   const { address } = route.params;
   const [region, setRegion] = React.useState(null);
+  const [locationFound, setLocationFound] = React.useState(true);
 
   React.useEffect(() => {
     // Haetaan osoitteen koordinaatit Nominatim-palvelusta
@@ -19,14 +20,19 @@ const MapScreen = ({ route }) => {
             latitudeDelta: 0.01,
             longitudeDelta: 0.01,
           });
+        } else {
+          setLocationFound(false);
         }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+        setLocationFound(false);
+      });
   }, [address]);
 
   return (
     <View style={styles.container}>
-      {region && (
+      {region ? (
         <MapView
           style={styles.map}
           region={region}
@@ -36,6 +42,12 @@ const MapScreen = ({ route }) => {
         >
           <Marker coordinate={region} title={address} />
         </MapView>
+      ) : (
+        <View style={styles.messageContainer}>
+          <Text style={styles.messageText}>
+            {locationFound ? 'Ladataan karttaa...' : 'Osoitetta ei löytynyt.'}
+          </Text>
+        </View>
       )}
     </View>
   );
@@ -49,6 +61,14 @@ const styles = StyleSheet.create({
   },
   map: {
     ...StyleSheet.absoluteFillObject,
+  },
+  messageContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  messageText: {
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 
