@@ -76,12 +76,13 @@ const PlacesScreen = () => {
         places.map((place) => (
           <TouchableOpacity key={place.id} onLongPress={() => handleLongPress(place.id)} onPress={() => handlePressPlace(place)}>
             <View>
-              <Text>{place.address}</Text>
+              <Text style={{ marginBottom: 5, marginTop: 5 }}>{place.address}</Text>
             </View>
           </TouchableOpacity>
         ))}
     </View>
   );
+
 }
 
 export default PlacesScreen;

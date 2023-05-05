@@ -7,6 +7,7 @@ const MapScreen = ({ route }) => {
   const [region, setRegion] = React.useState(null);
 
   React.useEffect(() => {
+    // Haetaan osoitteen koordinaatit Nominatim-palvelusta
     fetch(`https://nominatim.openstreetmap.org/search?q=${address}&format=json`)
       .then((response) => response.json())
       .then((data) => {
