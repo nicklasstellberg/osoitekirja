@@ -57,8 +57,8 @@ const RegisterScreen = ({ navigation }) => {
         onChangeText={(value) => setConfirmPassword(value)}
         value={confirmPassword}
       />
-      <TouchableOpacity style={styles.button} onPress={handleRegister}>
-        <Text style={styles.buttonText}>Rekisteröidy</Text>
+      <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
+        <Text style={styles.registerButtonText}>Rekisteröidy</Text>
       </TouchableOpacity>
     </View>
   );
@@ -84,8 +84,17 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 20,
   },
-  button: {
-    backgroundColor: "blue",
+  registerButton: {
+    backgroundColor: 'green',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 4,
+    marginTop: 10,
+  },
+  registerButtonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
 
