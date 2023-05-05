@@ -24,6 +24,10 @@ const LoginScreen = () => {
       });
   };
 
+  const handleRegistration = () => {
+    navigation.navigate('Register');
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Kirjaudu sisään</Text>
@@ -44,6 +48,10 @@ const LoginScreen = () => {
       />
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
         <Text style={styles.buttonText}>Kirjaudu sisään</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.registerButton} onPress={handleRegistration}>
+        <Text style={styles.buttonText}>Rekisteröidy</Text>
       </TouchableOpacity>
     </View>
   );
@@ -80,6 +88,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
+  registerButton: {
+    backgroundColor: 'green',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 4,
+    marginTop: 10,
+  },
+  registerButtonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+  }
 });
 
 export default LoginScreen;
