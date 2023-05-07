@@ -6,12 +6,20 @@ This is a simple React Native app that allows users to save locations and view t
 Technologies Used
 -----------------
 
+-   React
 -   React Native
 -   NavigationContainer and createStackNavigator from "@react-navigation/native"
--   PlacesScreen
--   MapScreen
--   LoginScreen
--   RegisterScreen
+-   Firebase (specifically, the Realtime Database)
+-   TextInput, TouchableOpacity, View, Text from "react-native"
+-   set, push, remove, ref, onValue from "firebase/database"
+-   Button and Input components from "@rneui/themed"
+-   Alert component from "react-native"
+-   react-native-maps
+-   fetch
+-   getAuth and signInWithEmailAndPassword from firebase/auth
+-   Node.js
+-   NPM
+-   StyleSheet
 
 Getting Started
 ---------------
