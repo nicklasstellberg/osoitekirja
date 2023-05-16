@@ -9,13 +9,18 @@ import RegisterScreen from "./RegisterScreen";
 
 const Stack = createStackNavigator();
 
+// Luo navigointi komponentti
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        {/* Aseta "Login" näyttö "LoginScreen" komponentille */}
         <Stack.Screen name="Login" component={LoginScreen} />
+        {/* Aseta "Register" näyttö "RegisterScreen" komponentille */}
         <Stack.Screen name="Register" component={RegisterScreen} />
+        {/* Aseta "My Places" näyttö "PlacesScreen" komponentille */}
         <Stack.Screen name="My Places" component={PlacesScreen} />
+        {/* Aseta "Map" näyttö "MapScreen" komponentille */}
         <Stack.Screen name="Map" component={MapScreen} />
       </Stack.Navigator>
     </NavigationContainer>
